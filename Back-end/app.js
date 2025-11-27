@@ -61,7 +61,7 @@ app.post("/cadastro", async(req,res)=>{
     } catch (error) {
         console.log(error)
     }
-
+})
     //LOGIN
     app.post("/login", async(req,res)=>{
         try {
@@ -102,7 +102,7 @@ app.post("/cadastro", async(req,res)=>{
     } catch (error) {
           console.log(`o erro é: ${error}`)
     }
-})})
+})
 
 // rotas
 app.post("/faleConosco", async (req, res) => {
@@ -143,4 +143,5 @@ app.post("/faleConosco", async (req, res) => {
         console.log(`o erro é: ${error}`)
   }
 })
+
 
