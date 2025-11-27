@@ -7,13 +7,35 @@
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
+    <header class="header">
+        <div class="nav">
+            <div class="pesquisa">
+                <input type="text" placeholder="Buscar..." class="pesquisa-input">
+                <button class="pesquisa-btn">🔍</button>
+            </div>
 
+            <nav class="menu">
+                <a href="index.html">Inicio</a>
+                <a href="cursos.html">Cursos</a>
+                <a href="#">Workshops</a>
+                <a href="#">Eventos</a>
+                <a href="login.html" class="login" id="loginBtn">Login</a>
+                <a href="cadastro.html" class="cadastro" id="cadastroBtn">Cadastro</a>
+                <a href="#" class="login" id="sairBtn" style="display: none;">Sair</a>
+            </nav>
+        </div>
+    </header>
+    <div class="imagem">
+        <img src="verse.png" alt="Logo Educa Verse" id="main-logo">
+    </div>
     <div class="container">
         <h1>LOGIN</h1>
         <label for="email">Email</label>
         <input type="text" id="email">
         <label for="senha">Senha</label>
         <input type="text" id="senha">
+
+
 
         <p id="resultado"></p>
         <button id="btn_enviar">Entrar</button>
@@ -22,9 +44,10 @@
 <script>
     document.getElementById("btn_enviar").addEventListener("click",async ()=>{
     //primeira etapa, pegar as informações dos inputs
+
     const email = document.getElementById("email").value
     const senha = document.getElementById("senha").value
-
+        
     //segunda etapa, fazer a requisição para o back-end
     const resposta = await fetch(`http://localhost:3000/login`,{
         method:"POST",
@@ -35,10 +58,9 @@
         body:JSON.stringify({
             "email": email,
             "senha": senha
-        
+                
     })
 })
-
     //terceira etapa, pegar a resposta do back-end
     if(resposta.ok == true){
         const dados = await resposta.json()
